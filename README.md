@@ -30,7 +30,7 @@
 | prefectures_id      | integer    | null: false                    |
 | shipping_days_id    | integer    | null: false                    |
 | price               | integer    | null: false                    |
-| user_id             | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -39,16 +39,17 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options                       |
-| ------- | ---------- | ----------------------------- |
-| item_id | references | null:false, foreign_key: true |
-| user_id | references | null:false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| item    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| address | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 ## addresses テーブル
 
@@ -60,8 +61,7 @@
 | street_address | string     | null: false                    |
 | detail_address | string     |                                |
 | telephone      | string     | null: false                    |
-| order_id       | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :orders
+- belongs_to order
