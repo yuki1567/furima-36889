@@ -20,16 +20,17 @@
 
 ## items テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name             | string     | null: false                    |
-| content          | text       | null: false                    |
-| category         | string     | null: false                    |
-| status           | string     | null: false                    |
-| shipping_charges | string     | null: false                    |
-| shipping_area    | string     | null: false                    |
-| price            | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| name                | string     | null: false                    |
+| content             | text       | null: false                    |
+| category_id         | integer    | null: false                    |
+| status_id           | integer    | null: false                    |
+| shipping_charges_id | integer    | null: false                    |
+| prefectures_id      | integer    | null: false                    |
+| shipping_days_id    | integer    | null: false                    |
+| price               | integer    | null: false                    |
+| user_id             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -47,14 +48,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- belongs_to :address
 
 ## addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
-| prefectures    | string     | null: false                    |
+| prefectures_id | integer    | null: false                    |
 | municipalities | string     | null: false                    |
 | street_address | string     | null: false                    |
 | detail_address | string     |                                |
@@ -63,4 +64,4 @@
 
 ### Association
 
-- has_one :order
+- has_many :orders
