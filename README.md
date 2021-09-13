@@ -20,17 +20,16 @@
 
 ## items テーブル
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| name                | string     | null: false                    |
-| content             | text       | null: false                    |
-| category_id         | integer    | null: false                    |
-| status_id           | integer    | null: false                    |
-| shipping_charges_id | integer    | null: false                    |
-| prefectures_id      | integer    | null: false                    |
-| shipping_days_id    | integer    | null: false                    |
-| price               | integer    | null: false                    |
-| user                | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| name             | string     | null: false                    |
+| content          | text       | null: false                    |
+| category         | string     | null: false                    |
+| status           | string     | null: false                    |
+| shipping_charges | string     | null: false                    |
+| shipping_area    | string     | null: false                    |
+| price            | integer    | null: false                    |
+| user_id          | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,27 +40,27 @@
 
 | Column  | Type       | Options                       |
 | ------- | ---------- | ----------------------------- |
-| item    | references | null:false, foreign_key: true |
-| user    | references | null:false, foreign_key: true |
+| item_id | references | null:false, foreign_key: true |
+| user_id | references | null:false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 ## addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
+| prefectures    | string     | null: false                    |
 | municipalities | string     | null: false                    |
 | street_address | string     | null: false                    |
 | detail_address | string     |                                |
 | telephone      | string     | null: false                    |
-| order          | references | null: false, foreign_key: true |
+| order_id       | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :orders
+- has_one :order
