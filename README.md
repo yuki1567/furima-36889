@@ -26,9 +26,9 @@
 | content             | text       | null: false                    |
 | category_id         | integer    | null: false                    |
 | status_id           | integer    | null: false                    |
-| shipping_charges_id | integer    | null: false                    |
-| prefectures_id      | integer    | null: false                    |
-| shipping_days_id    | integer    | null: false                    |
+| shipping_charge_id | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -43,7 +43,6 @@
 | ------- | ---------- | ------------------------------ |
 | item    | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,12 +55,13 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | municipalities | string     | null: false                    |
 | street_address | string     | null: false                    |
 | detail_address | string     |                                |
 | telephone      | string     | null: false                    |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to order
+- belongs_to :order
