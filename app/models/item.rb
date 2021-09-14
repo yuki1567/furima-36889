@@ -16,5 +16,5 @@ class Item < ApplicationRecord
   validates :shipping_charge_id, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_day_id, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, format: { with: /[300-9999999]\d/, message: " is out of setting range" }
 end
