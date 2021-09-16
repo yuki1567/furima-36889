@@ -11,4 +11,9 @@ class OrderAddress
     validates :street_address
     validates :telephone, length: { minimum: 10, maximum: 11, message: "is too short" }, format: { with: /\A[0-9]+\z/, message: " is invalid. Input only number"}
   end
+
+  def save
+    order = Order.create(item_id: item_id, user_id: user_id)
+    address.create((postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, street_address: street_address, detail_address: detail_address, telephone: telephone, order_id: order.id)
+  end
 end
