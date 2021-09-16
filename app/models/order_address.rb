@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :municipality, :street_address, :detail_address, :telephone
+  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :municipality, :street_address, :detail_address, :telephone, :token
 
   with_options presence: true do
     validates :item_id
@@ -10,6 +10,7 @@ class OrderAddress
     validates :municipality
     validates :street_address
     validates :telephone, length: { minimum: 10, maximum: 11, message: "is too short" }, format: { with: /\A[0-9]+\z/, message: " is invalid. Input only number"}
+    validates :token
   end
 
   def save
