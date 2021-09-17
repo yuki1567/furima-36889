@@ -9,7 +9,7 @@ class OrderAddress
     validates :prefecture_id
     validates :municipality
     validates :street_address
-    validates :telephone, length: { minimum: 10, maximum: 11, message: "is too short" }, format: { with: /\A[0-9]+\z/, message: " is invalid. Input only number"}
+    validates :telephone, length: { minimum: 10, maximum: 11, message: "is too short" }, format: { with: /\A[0-9]+\z/, message: "is invalid. Input only number"}
     validates :token
   end
 
