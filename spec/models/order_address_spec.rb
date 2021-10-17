@@ -30,67 +30,67 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが空では購入できない' do
         @order_address.postal_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
+        expect(@order_address.errors).to be_added(:postal_code, :blank)
       end
       it 'postal_codeが３桁ハイフン４桁以外では購入できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
+        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください(例： 123-4567)')
       end
       it 'postal_codeが半角文字列以外では購入できない' do
         @order_address.postal_code = 'あああああああ'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
+        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください(例： 123-4567)')
       end
       it 'prefecture_idが空では購入できない' do
         @order_address.prefecture_id = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_address.errors).to be_added(:prefecture_id, :blank)
       end
       it 'municipalityが空では購入できない' do
         @order_address.municipality = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Municipality can't be blank")
+        expect(@order_address.errors).to be_added(:municipality, :blank)
       end
       it 'street_addressが空では購入できない' do
         @order_address.street_address = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Street address can't be blank")
+        expect(@order_address.errors).to be_added(:street_address, :blank)
       end
       it 'telephoneが空では購入できない' do
         @order_address.telephone = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Telephone can't be blank")
+        expect(@order_address.errors).to be_added(:telephone, :blank)
       end
       it 'telephoneが半角数値以外では購入できない' do
         @order_address.telephone = 'abcdefghijk'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Telephone is invalid. Input only number')
+        expect(@order_address.errors[:telephone]).to include('は無効です。半角数字のみで入力してください')
       end
       it 'telephoneが9桁以下では購入できない' do
         @order_address.telephone = '090123456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Telephone is too short')
+        expect(@order_address.errors).to be_added(:telephone, :too_short)
       end
       it 'telephoneが12桁以上では購入できない' do
         @order_address.telephone = '090123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Telephone is too short')
+        expect(@order_address.errors).to be_added(:telephone, :too_short)
       end
       it 'tokenが空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        expect(@order_address.errors).to be_added(:token, :blank)
       end
       it 'userが紐付いてないと購入できない' do
         @order_address.user_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("User can't be blank")
+        expect(@order_address.errors).to be_added(:user, :blank)
       end
       it 'itemが紐付いてないと購入できない' do
         @order_address.item_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Item can't be blank")
+        expect(@order_address.errors).to be_added(:item, :blank)
       end
     end
   end

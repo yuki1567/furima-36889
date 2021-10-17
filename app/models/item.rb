@@ -17,6 +17,6 @@ class Item < ApplicationRecord
   validates :shipping_charge_id, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_day_id, presence: true
-  validates :price, presence: true, inclusion: { in: 300..9_999_999, message: 'is out of setting range' },
-                    numericality: { message: 'is invalid. Input half-width characters' }
+  validates :price, presence: true, inclusion: { in: 300..9_999_999, message: 'は￥300円〜￥9,999,999円の間で入力してください' },
+                    numericality: { message: 'が無効です。半角数字で入力してください' }
 end
