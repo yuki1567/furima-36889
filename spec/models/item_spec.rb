@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
       it 'priceが300~9_999_999以外では出品できない' do
         @item.price = '100'
         @item.valid?
-        expect(@item.errors[:price]).to include("は￥300円〜￥9,999,999円の間で入力してください")
+        expect(@item.errors[:price]).to include('は￥300円〜￥9,999,999円の間で入力してください')
       end
       it 'priceが299円以下では出品できない' do
         @item.price = '299'

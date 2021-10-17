@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       end
       it 'emailは@なしでは登録できない' do
         @user.email = 'acom'
-        @user.valid?      
+        @user.valid?
         expect(@user.errors).to be_of_kind(:email, :invalid)
       end
       it 'passwordが空では登録できない' do
@@ -56,19 +56,19 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下であれば登録できない' do
         @user.password = 'abc12'
         @user.password_confirmation = 'abc12'
-        @user.valid?               
+        @user.valid?
         expect(@user.errors).to be_of_kind(:password, :too_short)
       end
       it 'passwordが半角数字のみでは登録できない' do
         @user.password = '111111'
         @user.password_confirmation = '111111'
-        @user.valid?           
+        @user.valid?
         expect(@user.errors).to be_of_kind(:password, :invalid)
       end
       it 'passwordが半角英字のみでは登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
-        @user.valid?                
+        @user.valid?
         expect(@user.errors).to be_of_kind(:password, :invalid)
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
@@ -84,7 +84,7 @@ RSpec.describe User, type: :model do
       end
       it 'last_nameが全角（漢字・ひらがな・カタカナ）以外では登録できない' do
         @user.last_name = 'a'
-        @user.valid?        
+        @user.valid?
         expect(@user.errors).to be_of_kind(:last_name, :invalid)
       end
       it 'first_nameが空では登録できない' do
@@ -94,17 +94,17 @@ RSpec.describe User, type: :model do
       end
       it 'first_nameが全角（漢字・ひらがな・カタカナ）以外では登録できない' do
         @user.first_name = 'a'
-        @user.valid?    
+        @user.valid?
         expect(@user.errors).to be_of_kind(:first_name, :invalid)
       end
       it 'kana_last_nameが空では登録できない' do
         @user.kana_last_name = ''
-        @user.valid?        
+        @user.valid?
         expect(@user.errors).to be_added(:kana_last_name, :blank)
       end
       it 'kana_last_nameが全角（カタカナ）以外では登録できない' do
         @user.kana_last_name = '山田'
-        @user.valid?            
+        @user.valid?
         expect(@user.errors).to be_of_kind(:kana_last_name, :invalid)
       end
       it 'kana_first_nameが空では登録できない' do
@@ -114,7 +114,7 @@ RSpec.describe User, type: :model do
       end
       it 'kana_first_nameが全角（カタカナ）以外では登録できない' do
         @user.kana_first_name = '陸太郎'
-        @user.valid?    
+        @user.valid?
         expect(@user.errors).to be_of_kind(:kana_first_name, :invalid)
       end
       it 'birthdayが空では登録できない' do
