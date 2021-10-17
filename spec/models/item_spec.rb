@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品' do
     context '商品出品できる場合' do
-      it 'image,name, content, category_id, status_id, shipping_charge_id, prefecture_id, shipping_day_id, priceが存在すれば出品できる' do
+      it 'image, name, content, category_id, status_id, shipping_charge_id, prefecture_id, shipping_day_id, priceが存在すれば出品できる' do
         expect(@item).to be_valid
       end
       it 'priceが300~9999999の間で半角数値あれば出品できる' do
