@@ -14,16 +14,18 @@ ja:
         category_id: カテゴリー
         status_id: 商品の状態
         shipping_charge_id: 配送料の負担
-        prefecture_id: 発送元都道府県
+        prefecture_id: 発送元の地域
         shipping_day_id: 発送までの日数
-        price: 価格
-        images: 画像
+        price: 販売価格
+        images: 商品画像
+      card:
+        card_token: クレジットカード情報
   activemodel:
     attributes:
       order_address:
         postal_code: 郵便番号
         prefecture_id: 都道府県
-        municipality: 市町村
+        municipality: 市区町村
         street_address: 番地
         detail_address: 建物名
         telephone: 電話番号

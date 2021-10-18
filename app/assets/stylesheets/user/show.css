@@ -1,0 +1,81 @@
+.user-show {
+  background-color: #f8f8f8;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.user-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 1200px;
+  padding: 10vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-contents {
+  margin-top: 30px;
+  width: 70vw;
+}
+
+.user-lists {
+  border: solid 1px grey;
+  border-radius: 5px;
+}
+
+.user-list {
+  border-bottom: solid 1px grey;
+}
+
+.detail-user {
+  margin: 20px;
+}
+
+.card-contents {
+  margin-top: 30px;
+  width: 70vw;
+}
+
+.card-title {
+  padding: 10vh 15vw;
+  text-align: center;
+}
+
+.card-info {
+  margin-top: 30px;
+  width: 70vw;
+}
+
+.card-lists {
+  border: solid 1px grey;
+  border-radius: 5px;
+}
+
+.card-list {
+  border-bottom: solid 1px grey;
+}
+
+.detail-card {
+  margin: 20px;
+}
+
+.btn-contents {
+  margin: 80px;
+}
+
+.new-card-btn {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.new-card-btn-text {
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: #FFF;
+  font-size: 14px;
+  padding: 18px 100px;
+}

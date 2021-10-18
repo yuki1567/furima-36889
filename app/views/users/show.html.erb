@@ -1,0 +1,47 @@
+<%= render "shared/header" %>
+<div class="user-show">
+  <div class="user-box">
+    <h2>ユーザー情報</h2>
+    <div class="user-contents">
+      <ul class="user-lists">
+        <li class="user-list">
+          <div class="detail-user">ニックネーム：<%= @user.nickname %></div>
+        </li>
+        <li class="user-list">
+          <div class="detail-user">メールアドレス：<%= @user.email %></div>
+        </li>
+        <li class="user-list">
+          <div class="detail-user">お名前：<%= @user.last_name %><%= @user.first_name%></div>
+        </li>
+        <li class="user-list">
+          <div class="detail-user">フリガナ：<%= @user.kana_last_name %><%= @user.kana_first_name%></div>
+        </li>
+        <li>
+          <div class="detail-user">生年月日：<%= @user.birthday %></div>
+        </li>
+      </ul>
+    </div>
+    <% if current_user.card.present? %>
+      <div class="card-contents">
+        <h2 class="card-title">カード情報</h2>
+        <div class="card_info">
+          <ul class="card-lists">
+            <li class="card-list">
+              <div class="detail-card">【カード番号】<%= "**** **** **** " + @card[:last4] %></div>
+            </li>
+            <li>
+              <div class="detail-card">【有効期限】<%= @card[:exp_month] %>/<%= @card[:exp_year] %></div>
+            </li>
+          </ul>
+        </div>
+    <% else %>
+        <div class="btn-contents">
+          <div class="new-card-btn">
+            <%= link_to  "カード情報登録", new_card_path, class: "new-card-btn-text" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>
