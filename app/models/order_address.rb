@@ -1,7 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :municipality, :street_address, :detail_address, :telephone,
-                :token
+  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :municipality, :street_address, :detail_address, :telephone
 
   with_options presence: true do
     validates :item_id
@@ -12,7 +11,6 @@ class OrderAddress
     validates :street_address
     validates :telephone, length: { minimum: 10, maximum: 11, message: 'が短いです' },
                           format: { with: /\A[0-9]+\z/, message: 'が無効です。半角数字のみで入力してください' }
-    validates :token
   end
 
   def save

@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.flash-message {
+  color: #ea352d;
+}
+
 .item-box>.name {
   text-align: center;
   font-weight: bold;

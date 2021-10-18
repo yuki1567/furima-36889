@@ -3,6 +3,9 @@
 <%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
+    <p class="flash-message">
+      <%= flash[:notice] %>
+    </p>
     <h2 class="name">
       <%= @item.name %>
     </h2>
