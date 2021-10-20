@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def index
     redirect_to root_path if @item.order.present? || @item.user_id == current_user.id
     unless current_user.card.present?
-      flash[:notice] = "⚠️クレジットカードの登録をしてください"
+      flash[:notice] = '⚠️クレジットカードの登録をしてください'
       redirect_to item_path(@item)
     end
     @order_address = OrderAddress.new
@@ -17,9 +17,9 @@ class OrdersController < ApplicationController
     if @order_address.valid?
       pay_item
       @order_address.save
-      redirect_to root_path 
+      redirect_to root_path
     else
-      render :index 
+      render :index
     end
   end
 
@@ -27,7 +27,8 @@ class OrdersController < ApplicationController
 
   def order_params
     params.permit(:postal_code, :prefecture_id, :municipality, :street_address, :detail_address, :telephone).merge(
-      item_id: params[:item_id], user_id: current_user.id)
+      item_id: params[:item_id], user_id: current_user.id
+    )
   end
 
   def set_item

@@ -12,8 +12,8 @@ RSpec.describe Comment, type: :model do
       end
     end
     context 'コメント投稿できない場合' do
-      it  'itemが紐付いていないとコメント投稿できない' do
-        @comment.item = nil 
+      it 'itemが紐付いていないとコメント投稿できない' do
+        @comment.item = nil
         @comment.valid?
         expect(@comment.errors).to be_added(:item, :blank)
       end
