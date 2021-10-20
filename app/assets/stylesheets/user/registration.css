@@ -158,3 +158,15 @@
   text-align: right;
   cursor: pointer;
 }
+
+.btnarea {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.google-btn {
+  background-color: #fff;
+  border: 2px solid #57C3E9;
+  color: #57C3E9;
+  padding: 10px;
+}
