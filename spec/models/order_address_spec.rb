@@ -35,12 +35,12 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが３桁ハイフン４桁以外では購入できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください(例： 123-4567)')
+        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください（例：123-4567）')
       end
       it 'postal_codeが半角文字列以外では購入できない' do
         @order_address.postal_code = 'あああああああ'
         @order_address.valid?
-        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください(例： 123-4567)')
+        expect(@order_address.errors[:postal_code]).to include('が無効です。例のように入力してください（例：123-4567）')
       end
       it 'prefecture_idが空では購入できない' do
         @order_address.prefecture_id = ''
@@ -65,32 +65,27 @@ RSpec.describe OrderAddress, type: :model do
       it 'telephoneが半角数値以外では購入できない' do
         @order_address.telephone = 'abcdefghijk'
         @order_address.valid?
-        expect(@order_address.errors[:telephone]).to include('は無効です。半角数字のみで入力してください')
+        expect(@order_address.errors[:telephone]).to include('が無効です。半角数字のみで入力してください')
       end
       it 'telephoneが9桁以下では購入できない' do
         @order_address.telephone = '090123456'
         @order_address.valid?
-        expect(@order_address.errors).to be_added(:telephone, :too_short)
+        expect(@order_address.errors).to be_of_kind(:telephone, :too_short)
       end
       it 'telephoneが12桁以上では購入できない' do
         @order_address.telephone = '090123456789'
         @order_address.valid?
-        expect(@order_address.errors).to be_added(:telephone, :too_short)
-      end
-      it 'tokenが空では購入できない' do
-        @order_address.token = ''
-        @order_address.valid?
-        expect(@order_address.errors).to be_added(:token, :blank)
+        expect(@order_address.errors).to be_of_kind(:telephone, :too_long)
       end
       it 'userが紐付いてないと購入できない' do
         @order_address.user_id = nil
         @order_address.valid?
-        expect(@order_address.errors).to be_added(:user, :blank)
+        expect(@order_address.errors).to be_added(:user_id, :blank)
       end
       it 'itemが紐付いてないと購入できない' do
         @order_address.item_id = nil
         @order_address.valid?
-        expect(@order_address.errors).to be_added(:item, :blank)
+        expect(@order_address.errors).to be_added(:item_id, :blank)
       end
     end
   end

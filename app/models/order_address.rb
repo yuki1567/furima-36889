@@ -5,7 +5,7 @@ class OrderAddress
   with_options presence: true do
     validates :item_id
     validates :user_id
-    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'が無効です。例のように入力してください (例： 123-4567)' }
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'が無効です。例のように入力してください（例：123-4567）' }
     validates :prefecture_id
     validates :municipality
     validates :street_address
