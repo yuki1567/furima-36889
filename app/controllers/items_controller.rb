@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.all
   end
 
   def new

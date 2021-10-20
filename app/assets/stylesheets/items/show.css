@@ -215,3 +215,9 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comment {
+  text-align: left;
+  padding: 10px 50px;
+  overflow-wrap :break-word;
+}
